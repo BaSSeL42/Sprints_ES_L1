@@ -92,7 +92,10 @@ void ledDisplay(void)
 {
 	static Uint8_t counter = 0;
 	counter++;
-
+	HLed_off(DIO_PINC_0);
+	HLed_off(DIO_PINC_1);
+	HLed_off(DIO_PINC_2);
+	HLed_off(DIO_PINC_3);
 	if(counter == LED_SEQ1)
 	{
 		gLEDSeq = LED_SEQ1;
@@ -126,11 +129,6 @@ void ledDisplay(void)
 		gLEDSeq = LED_SEQ8;
 		counter = 0;
 	}
-//	else if(counter == LED_SEQ9)
-//	{
-//		counter = 0;
-//		gLEDSeq = LED_SEQ1;
-//	}
 	else
 	{
 		/* do nothing */
