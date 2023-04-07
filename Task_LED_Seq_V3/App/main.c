@@ -41,7 +41,7 @@ void changeBlinkTime(void);
 Uint32_t blinkVersion;
 Uint32_t time1 = 9;
 Uint32_t time2 = 10;
-Uint8_t gLEDSeq = LED_SEQ0;
+Uint8_t gLEDSeq = LED_SEQ1;
 /*******************************************************************************
  * 								main function
  ******************************************************************************/
@@ -124,12 +124,13 @@ void ledDisplay(void)
 	else if(counter == LED_SEQ8)
 	{
 		gLEDSeq = LED_SEQ8;
-	}
-	else if(counter == LED_SEQ9)
-	{
 		counter = 0;
-		gLEDSeq = LED_SEQ1;
 	}
+//	else if(counter == LED_SEQ9)
+//	{
+//		counter = 0;
+//		gLEDSeq = LED_SEQ1;
+//	}
 	else
 	{
 		/* do nothing */
@@ -281,13 +282,14 @@ void blink(void)
  */
 void changeBlinkTime(void)
 {
+	time1--;
+	time2++;
+
 	if(time1 == 2)
 	{
 		time1 = 9;
 		time2 = 10;
 	}
-	time1--;
-	time2++;
 
 
 }
